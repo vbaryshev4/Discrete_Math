@@ -27,20 +27,26 @@ print("----")
 
 print("Задача N3: Создать словарь С, где ключами являются кубы элементов А, а значениями сами элементы")
 C = dict()
-for z in range(len(A2)):
+for j in range(len(A2)):
 	elem = A2.pop()
-	C.update(C.fromkeys([elem**2], elem))
+	C.update(C.fromkeys([elem**3], elem))
 	# print(z, elem, C)
 print("C - словарь: ключи = кубам элементов А2, а значениями сами элементы:", C)
 print("----")
 
 print("Задача N4: Создать множество D из пар (элемент А3, элемент объединения элементов В и ключа С")
 D = set()
+B2 = B.copy()
+B2 = (B2.union(set(C.keys())))
+# print("B2", B2)
 for k in range(len(A3)):
-	new_segment = A3.pop()
-	D.add(new_segment) 
-	# print(k, new_segment, D)
-print("Нет решения")
+	B3 = B2.copy()
+	first_elem = A3.pop()
+	for t in range(len(B3)):
+		second_elem = B3.pop()
+		tpl = (first_elem, second_elem)
+		D.add(tpl)
+print(D)
 print("----")
 
 print("Задача N5: Создать множество Е, из значений словаря С")
